@@ -1,4 +1,4 @@
-const { get } = require("lodash");
+const { get, merge } = require("lodash");
 
 module.exports = (plugin) => {
   const sanitizeUser = (user, addInAttributes = true) => {
@@ -37,22 +37,21 @@ module.exports = (plugin) => {
     const data = await strapi.entityService.findOne(
       uid,
       ctx.params.id,
-      ctx.query
+      merge(ctx.query, {
+        filters: { institute: { id: { $eq: ctx.state.user.institute.id } } },
+      })
     );
 
     ctx.body = { data: sanitizeUser(data), meta: {} };
   };
 
   plugin.controllers.user.find = async (ctx) => {
-    const {
-      query,
-      query: { pagination },
-    } = ctx;
-
-    const data = await strapi.entityService.findPage(uid, {
-      ...query,
-      ...(pagination ? pagination : {}),
-    });
+    const data = await strapi.entityService.findPage(
+      uid,
+      merge(ctx.query, {
+        filters: { institute: { id: { $eq: ctx.state.user.institute.id } } },
+      })
+    );
 
     data.results = data.results.map((user) => sanitizeUser(user));
 
@@ -67,6 +66,8 @@ module.exports = (plugin) => {
     } catch {
       return ctx.conflict(`"${userData.email}" is already taken.`);
     }
+
+    userData.institute = { id: ctx.state.user.institute.id };
 
     const data = await strapi.entityService.create(uid, { data: userData });
 
