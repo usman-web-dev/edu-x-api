@@ -10,7 +10,9 @@ module.exports = createCoreController("api::course.course", () => ({
   async find(ctx) {
     ctx.query = merge(ctx.query, {
       filters: {
-        department: { grade: { institute: { id: { $eq: 1 } } } },
+        department: {
+          grade: { institute: { id: { $eq: ctx.state.user.institute.id } } },
+        },
       },
     });
 

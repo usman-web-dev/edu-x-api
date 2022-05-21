@@ -9,14 +9,17 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::grade.grade", () => ({
   async find(ctx) {
-    console.log(ctx.state.user);
     ctx.query = merge(ctx.query, {
       filters: {
-        institute: { id: { $eq: 1 } },
+        institute: { id: { $eq: ctx.state.user.institute.id } },
       },
     });
 
     const { data, meta } = await super.find(ctx);
     return { data, meta };
+  },
+  async create(ctx) {
+    ctx.request.body.data.institute = { id: ctx.state.user.institute.id };
+    return super.create(ctx);
   },
 }));
