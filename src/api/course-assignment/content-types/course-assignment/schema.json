@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_assignments",
+  "info": {
+    "singularName": "course-assignment",
+    "pluralName": "course-assignments",
+    "displayName": "Course Assignment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::section.section",
+      "inversedBy": "courseAssignments"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "teacherCourseAssignments"
+    },
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "studentCourseAssignments"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course.course",
+      "inversedBy": "courseAssignments"
+    }
+  }
+}

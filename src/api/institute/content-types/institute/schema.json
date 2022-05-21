@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "institutes",
+  "info": {
+    "singularName": "institute",
+    "pluralName": "institutes",
+    "displayName": "Institute",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    },
+    "grades": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::grade.grade",
+      "mappedBy": "institute"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "institute"
+    }
+  }
+}
