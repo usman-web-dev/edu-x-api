@@ -682,6 +682,12 @@
                                                                                                                               }
                                                                                                                             }
                                                                                                                           },
+                                                                                                                          "code": {
+                                                                                                                            "type": "string"
+                                                                                                                          },
+                                                                                                                          "creditHours": {
+                                                                                                                            "type": "integer"
+                                                                                                                          },
                                                                                                                           "createdAt": {
                                                                                                                             "type": "string",
                                                                                                                             "format": "date-time"
@@ -2434,6 +2440,12 @@
                                                                                                                             }
                                                                                                                           }
                                                                                                                         },
+                                                                                                                        "code": {
+                                                                                                                          "type": "string"
+                                                                                                                        },
+                                                                                                                        "creditHours": {
+                                                                                                                          "type": "integer"
+                                                                                                                        },
                                                                                                                         "createdAt": {
                                                                                                                           "type": "string",
                                                                                                                           "format": "date-time"
@@ -4104,6 +4116,12 @@
                                                                                                                             }
                                                                                                                           }
                                                                                                                         },
+                                                                                                                        "code": {
+                                                                                                                          "type": "string"
+                                                                                                                        },
+                                                                                                                        "creditHours": {
+                                                                                                                          "type": "integer"
+                                                                                                                        },
                                                                                                                         "createdAt": {
                                                                                                                           "type": "string",
                                                                                                                           "format": "date-time"
@@ -5764,6 +5782,12 @@
                                                                                                                               }
                                                                                                                             }
                                                                                                                           }
+                                                                                                                        },
+                                                                                                                        "code": {
+                                                                                                                          "type": "string"
+                                                                                                                        },
+                                                                                                                        "creditHours": {
+                                                                                                                          "type": "integer"
                                                                                                                         },
                                                                                                                         "createdAt": {
                                                                                                                           "type": "string",

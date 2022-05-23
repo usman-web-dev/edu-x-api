@@ -34,6 +34,16 @@
       "relation": "oneToMany",
       "target": "api::course-assignment.course-assignment",
       "mappedBy": "course"
+    },
+    "code": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "creditHours": {
+      "type": "integer",
+      "required": true,
+      "default": 3
     }
   }
 }

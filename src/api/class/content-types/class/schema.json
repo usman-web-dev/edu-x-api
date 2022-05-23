@@ -32,7 +32,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::course.course",
-      "inversedBy": "classes"
+      "mappedBy": "classes"
     }
   }
 }
