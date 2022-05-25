@@ -35,6 +35,12 @@
       "relation": "manyToOne",
       "target": "api::course.course",
       "inversedBy": "courseAssignments"
+    },
+    "works": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work.work",
+      "mappedBy": "courseAssignment"
     }
   }
 }

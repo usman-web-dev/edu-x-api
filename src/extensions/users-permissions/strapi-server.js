@@ -1,4 +1,7 @@
 const { get, merge } = require("lodash");
+const {
+  errors: { ApplicationError, ValidationError },
+} = require("@strapi/utils");
 
 module.exports = (plugin) => {
   const sanitizeUser = (user, addInAttributes = true) => {
