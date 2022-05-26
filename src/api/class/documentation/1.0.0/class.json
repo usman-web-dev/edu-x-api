@@ -1938,6 +1938,15 @@
                                                                                                       }
                                                                                                     }
                                                                                                   },
+                                                                                                  "type": {
+                                                                                                    "type": "string",
+                                                                                                    "enum": [
+                                                                                                      "exam",
+                                                                                                      "assignment",
+                                                                                                      "quiz",
+                                                                                                      "test"
+                                                                                                    ]
+                                                                                                  },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
                                                                                                     "format": "date-time"
@@ -4526,6 +4535,15 @@
                                                                                                     }
                                                                                                   }
                                                                                                 },
+                                                                                                "type": {
+                                                                                                  "type": "string",
+                                                                                                  "enum": [
+                                                                                                    "exam",
+                                                                                                    "assignment",
+                                                                                                    "quiz",
+                                                                                                    "test"
+                                                                                                  ]
+                                                                                                },
                                                                                                 "createdAt": {
                                                                                                   "type": "string",
                                                                                                   "format": "date-time"
@@ -7032,6 +7050,15 @@
                                                                                                     }
                                                                                                   }
                                                                                                 },
+                                                                                                "type": {
+                                                                                                  "type": "string",
+                                                                                                  "enum": [
+                                                                                                    "exam",
+                                                                                                    "assignment",
+                                                                                                    "quiz",
+                                                                                                    "test"
+                                                                                                  ]
+                                                                                                },
                                                                                                 "createdAt": {
                                                                                                   "type": "string",
                                                                                                   "format": "date-time"
@@ -9528,6 +9555,15 @@
                                                                                                       }
                                                                                                     }
                                                                                                   }
+                                                                                                },
+                                                                                                "type": {
+                                                                                                  "type": "string",
+                                                                                                  "enum": [
+                                                                                                    "exam",
+                                                                                                    "assignment",
+                                                                                                    "quiz",
+                                                                                                    "test"
+                                                                                                  ]
                                                                                                 },
                                                                                                 "createdAt": {
                                                                                                   "type": "string",

@@ -19,25 +19,35 @@
       "inversedBy": "works"
     },
     "question": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+      ]
     },
     "answer": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "exam",
+        "assignment",
+        "quiz",
+        "test"
       ],
-      "type": "media",
-      "multiple": true,
       "required": true
     }
   }

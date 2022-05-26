@@ -21,14 +21,14 @@ module.exports = (plugin) => {
 
   const uid = "plugin::users-permissions.user";
 
-  const checkUserEmail = (email) => {
+  const checkUserEmail = (email, id) => {
     return new Promise(async (res, rej) => {
       const users = await strapi.entityService.findMany(uid, {
         filters: { email: { $eq: email } },
         limit: 1,
       });
 
-      if (users.length) {
+      if ((!id && users.length) || (id && users?.[0]?.id !== id)) {
         rej();
       } else {
         res();
@@ -85,7 +85,7 @@ module.exports = (plugin) => {
     const { data: userData } = ctx.request.body;
 
     try {
-      await checkUserEmail(userData.email);
+      await checkUserEmail(userData.email, userData.id);
     } catch {
       return ctx.conflict(`"${userData.email}" is already taken.`);
     }
