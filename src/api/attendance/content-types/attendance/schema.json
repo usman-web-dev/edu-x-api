@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attendances",
+  "info": {
+    "singularName": "attendance",
+    "pluralName": "attendances",
+    "displayName": "Attendance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "courseAssignment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-assignment.course-assignment",
+      "inversedBy": "attendances"
+    },
+    "attendanceStudents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attendance-student.attendance-student",
+      "mappedBy": "attendance"
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "fromTime": {
+      "type": "time",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "toTime": {
+      "type": "time",
+      "required": true
+    }
+  }
+}

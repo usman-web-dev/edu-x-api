@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attendance_students",
+  "info": {
+    "singularName": "attendance-student",
+    "pluralName": "attendance-students",
+    "displayName": "AttendanceStudent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "attendance": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::attendance.attendance",
+      "inversedBy": "attendanceStudents"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "attendances"
+    },
+    "present": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

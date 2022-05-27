@@ -86,6 +86,12 @@
       "relation": "manyToOne",
       "target": "api::institute.institute",
       "inversedBy": "users"
+    },
+    "attendances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attendance-student.attendance-student",
+      "mappedBy": "student"
     }
   }
 }
