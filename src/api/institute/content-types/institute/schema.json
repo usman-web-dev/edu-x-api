@@ -28,6 +28,15 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "institute"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "school",
+        "university"
+      ],
+      "required": true,
+      "default": "university"
     }
   }
 }

@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assessments",
+  "info": {
+    "singularName": "assessment",
+    "pluralName": "assessments",
+    "displayName": "Assessment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "start": {
+      "type": "datetime",
+      "required": false
+    },
+    "deadline": {
+      "type": "datetime"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-assignment.course-assignment",
+      "inversedBy": "assessments"
+    },
+    "questionMedia": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "questionText": {
+      "type": "text",
+      "minLength": 10
+    },
+    "totalMarks": {
+      "type": "integer",
+      "required": true,
+      "default": 100
+    },
+    "required": {
+      "type": "boolean",
+      "default": true
+    },
+    "submissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assessment-submission.assessment-submission",
+      "mappedBy": "assessment"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "quiz",
+        "assignment",
+        "exam",
+        "homework",
+        "paper"
+      ],
+      "required": true
+    },
+    "subType": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    }
+  }
+}

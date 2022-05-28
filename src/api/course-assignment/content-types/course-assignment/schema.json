@@ -36,17 +36,17 @@
       "target": "api::course.course",
       "inversedBy": "courseAssignments"
     },
-    "works": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::work.work",
-      "mappedBy": "courseAssignment"
-    },
     "attendances": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::attendance.attendance",
       "mappedBy": "courseAssignment"
+    },
+    "assessments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assessment.assessment",
+      "mappedBy": "course"
     }
   }
 }

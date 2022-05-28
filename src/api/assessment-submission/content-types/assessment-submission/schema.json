@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assessment_submissions",
+  "info": {
+    "singularName": "assessment-submission",
+    "pluralName": "assessment-submissions",
+    "displayName": "Assessment Submission"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "assessment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::assessment.assessment",
+      "inversedBy": "submissions"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "assessmentSubmissions"
+    },
+    "answers": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "obtainedMarks": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}

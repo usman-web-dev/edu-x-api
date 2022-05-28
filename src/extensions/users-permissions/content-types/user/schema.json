@@ -92,6 +92,12 @@
       "relation": "oneToMany",
       "target": "api::attendance-student.attendance-student",
       "mappedBy": "student"
+    },
+    "assessmentSubmissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assessment-submission.assessment-submission",
+      "mappedBy": "student"
     }
   }
 }
