@@ -12,9 +12,9 @@ const {
 module.exports = {
   async update(ctx) {
     const { id } = ctx.state.user;
-    const { currentPassword, password } = ctx.request.body;
+    const { oldPassword, password } = ctx.request.body;
 
-    if (!currentPassword || !password) {
+    if (!oldPassword || !password) {
       throw new ValidationError("Current Password or Password can't be empty.");
     }
 
@@ -22,7 +22,7 @@ module.exports = {
 
     const validPassword = await strapi
       .service(uid)
-      .validatePassword(currentPassword, user.password);
+      .validatePassword(oldPassword, user.password);
 
     if (!validPassword) {
       throw new UnauthorizedError("Current Password is wrong.");
