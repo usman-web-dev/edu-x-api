@@ -82,7 +82,12 @@ module.exports = (plugin) => {
   };
 
   plugin.controllers.user.update = async (ctx) => {
+    const { id, role } = ctx.state.user;
     const { data: userData } = ctx.request.body;
+
+    if (role.id !== 1 && id !== +ctx.params.id) {
+      return ctx.unauthorized();
+    }
 
     try {
       await checkUserEmail(userData.email, userData.id);
