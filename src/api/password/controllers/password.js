@@ -15,7 +15,7 @@ module.exports = {
     const { oldPassword, password } = ctx.request.body;
 
     if (!oldPassword || !password) {
-      throw new ValidationError("Current Password or Password can't be empty.");
+      throw new ValidationError("Old Password or Password can't be empty.");
     }
 
     let user = await strapi.query(uid).findOne({ id });
