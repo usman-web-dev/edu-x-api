@@ -36,9 +36,8 @@
         "audios"
       ]
     },
-    "questionText": {
-      "type": "text",
-      "minLength": 10
+    "questionDescription": {
+      "type": "text"
     },
     "totalMarks": {
       "type": "integer",

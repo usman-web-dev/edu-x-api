@@ -4,7 +4,8 @@
   "info": {
     "singularName": "assessment-submission",
     "pluralName": "assessment-submissions",
-    "displayName": "Assessment Submission"
+    "displayName": "Assessment Submission",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,19 +25,18 @@
       "inversedBy": "assessmentSubmissions"
     },
     "answers": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+      ]
     },
     "obtainedMarks": {
-      "type": "decimal",
-      "min": 0
+      "type": "decimal"
     }
   }
 }

@@ -98,6 +98,12 @@
       "relation": "oneToMany",
       "target": "api::assessment-submission.assessment-submission",
       "mappedBy": "student"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "users"
     }
   }
 }
