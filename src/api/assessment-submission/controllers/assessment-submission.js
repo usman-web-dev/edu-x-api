@@ -27,12 +27,21 @@ module.exports = createCoreController(
         );
       }
 
-      await strapi.entityService.create("api::notification.notification", {
-        data: {
-          users: [id],
-          text: `${ctx.state.user.username} has marked your assessment (${type}-${subType})`,
-        },
-      });
+      const notification = await strapi.entityService.create(
+        "api::notification.notification",
+        {
+          data: {
+            users: [id],
+            text: `${ctx.state.user.username} has marked your assessment (${type}-${subType})`,
+          },
+        }
+      );
+
+      const socket = strapi.config.utils.CONNECTED_SOCKETS[id]?.socket;
+
+      if (socket) {
+        socket.emit("notification", notification);
+      }
 
       return { data, meta };
     },
