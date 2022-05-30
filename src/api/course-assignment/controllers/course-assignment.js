@@ -30,5 +30,23 @@ module.exports = createCoreController(
       const { data, meta } = await super.find(ctx);
       return { data, meta };
     },
+    async create(ctx) {
+      const { data, meta } = await super.create(ctx);
+
+      const chatRoom = await strapi.entityService.create(
+        "api::chat-room.chat-room",
+        { data: {} }
+      );
+
+      console.log(chatRoom);
+
+      await strapi.entityService.update(
+        "api::chat-room.chat-room",
+        chatRoom.id,
+        { data: { course: { id: data.id } } }
+      );
+
+      return { data, meta };
+    },
   })
 );

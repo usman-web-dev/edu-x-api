@@ -104,6 +104,12 @@
       "relation": "manyToMany",
       "target": "api::notification.notification",
       "mappedBy": "users"
+    },
+    "chats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::chat.chat",
+      "mappedBy": "sentBy"
     }
   }
 }

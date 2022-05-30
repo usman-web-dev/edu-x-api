@@ -47,6 +47,12 @@
       "relation": "oneToMany",
       "target": "api::assessment.assessment",
       "mappedBy": "course"
+    },
+    "chatRoom": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chat-room.chat-room",
+      "mappedBy": "course"
     }
   }
 }

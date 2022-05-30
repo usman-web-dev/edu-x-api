@@ -13,7 +13,7 @@ module.exports = createCoreController(
   "api::assessment-submission.assessment-submission",
   () => ({
     async update(ctx) {
-      const { data, meta } = await super.find(ctx);
+      const { data, meta } = await super.update(ctx);
 
       const {
         student: { id },
