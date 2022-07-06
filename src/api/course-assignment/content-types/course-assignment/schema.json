@@ -53,6 +53,12 @@
       "relation": "oneToOne",
       "target": "api::chat-room.chat-room",
       "mappedBy": "course"
+    },
+    "meetings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::meeting.meeting",
+      "mappedBy": "course"
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meeting_details",
+  "info": {
+    "singularName": "meeting-detail",
+    "pluralName": "meeting-details",
+    "displayName": "Meeting Detail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "meeting": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::meeting.meeting",
+      "inversedBy": "meetingDetails"
+    },
+    "accepted": {
+      "type": "boolean",
+      "required": false
+    },
+    "attendee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "meetingDetails"
+    }
+  }
+}

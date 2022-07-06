@@ -13,11 +13,14 @@ module.exports = createCoreController(
   "api::assessment-submission.assessment-submission",
   () => ({
     async update(ctx) {
-      const { data, meta } = await super.update(ctx);
-
       const {
         student: { id },
-        assessment: { type, subType },
+        assessment: {
+          id: assessmentId,
+          type,
+          subType,
+          course: { id: courseAssignmentId },
+        },
         obtainedMarks,
       } = ctx.request.body.data;
 
@@ -27,12 +30,19 @@ module.exports = createCoreController(
         );
       }
 
+      const { data, meta } = await super.update(ctx);
+
       const notification = await strapi.entityService.create(
         "api::notification.notification",
         {
           data: {
-            users: [id],
+            user: id,
             text: `${ctx.state.user.username} has marked your assessment (${type}-${subType})`,
+            type: "marks",
+            extra: {
+              courseAssignmentId,
+              assessmentId,
+            },
           },
         }
       );

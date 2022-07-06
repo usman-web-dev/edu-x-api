@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meetings",
+  "info": {
+    "singularName": "meeting",
+    "pluralName": "meetings",
+    "displayName": "Meeting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 5
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-assignment.course-assignment",
+      "inversedBy": "meetings"
+    },
+    "meetingDetails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::meeting-detail.meeting-detail",
+      "mappedBy": "meeting"
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "text"
+    },
+    "recurring": {
+      "type": "boolean",
+      "default": false
+    },
+    "monday": {
+      "type": "boolean"
+    },
+    "tuesday": {
+      "type": "boolean"
+    },
+    "wednesday": {
+      "type": "boolean"
+    },
+    "thursday": {
+      "type": "boolean"
+    },
+    "friday": {
+      "type": "boolean"
+    },
+    "saturday": {
+      "type": "boolean"
+    },
+    "sunday": {
+      "type": "boolean"
+    },
+    "meetingUrl": {
+      "type": "string",
+      "regex": "^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(\\/(.)*)?(\\?(.)*)?",
+      "required": false
+    },
+    "host": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "meetings"
+    }
+  }
+}

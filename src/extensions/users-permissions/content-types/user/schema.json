@@ -99,17 +99,29 @@
       "target": "api::assessment-submission.assessment-submission",
       "mappedBy": "student"
     },
-    "notifications": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::notification.notification",
-      "mappedBy": "users"
-    },
     "chats": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::chat.chat",
       "mappedBy": "sentBy"
+    },
+    "meetingDetails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::meeting-detail.meeting-detail",
+      "mappedBy": "attendee"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "user"
+    },
+    "meetings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::meeting.meeting",
+      "mappedBy": "host"
     }
   }
 }

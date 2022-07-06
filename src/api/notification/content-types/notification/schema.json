@@ -16,11 +16,25 @@
       "type": "text",
       "required": true
     },
-    "users": {
+    "user": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "notifications"
+    },
+    "read": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "meeting",
+        "marks",
+        "assessment"
+      ]
+    },
+    "extra": {
+      "type": "json"
     }
   }
 }
